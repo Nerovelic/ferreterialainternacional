@@ -12,21 +12,31 @@ const HomePage = ({ footerPosition = "bottom" }) => {
     const carouselInner = carousel.querySelector(".carousel-inner");
 
     const resizeImages = () => {
-      const images = carousel.querySelectorAll(".carousel-item img");
+      const items = carousel.querySelectorAll(".carousel-item");
+      const itemHeight = carouselInner.clientHeight;
 
-      images.forEach((img) => {
-        const width = carouselInner.clientWidth;
-        const height = carouselInner.clientHeight;
+      items.forEach((item) => {
+        const img = item.querySelector(".carousel-img");
+        const wrapper = item.querySelector(".carousel-img-wrapper");
+
+        wrapper.style.height = `${itemHeight}px`;
+
         const imgRatio = img.naturalWidth / img.naturalHeight;
-        const containerRatio = width / height;
+        const wrapperRatio = item.clientWidth / item.clientHeight;
 
-        if (imgRatio > containerRatio) {
+        if (imgRatio > wrapperRatio) {
           img.style.width = "100%";
           img.style.height = "auto";
         } else {
           img.style.width = "auto";
           img.style.height = "100%";
+          img.style.width = "auto";
         }
+        
+        img.style.position = "absolute";
+        img.style.top = "50%";
+        img.style.left = "50%";
+        img.style.transform = "translate(-50%, -50%)";
       });
     };
 
@@ -44,7 +54,7 @@ const HomePage = ({ footerPosition = "bottom" }) => {
         display: "flex",
         flexDirection: "column",
         minHeight: "100vh",
-        position: "relative", 
+        position: "relative",
         background: "linear-gradient(to top, #a2d2ff, #D8DAD3)",
       }}
     >
@@ -57,50 +67,65 @@ const HomePage = ({ footerPosition = "bottom" }) => {
           height: "25vh",
         }}
       ></div>
-      <div 
+      <div
         style={{
           position: "absolute",
           top: "25vh",
-          left: 500,
-          right: 500,
+          left: 0,
+          right: 0,
           bottom: footerPosition === "bottom" ? "4rem" : 0,
-          margin: "auto",
+          maxHeight: "calc(100vh - 25vh - 4rem)",
+          overflowY: "auto",
+          width: "50%",
+          margin: "0 auto",
         }}
         ref={carouselRef}
       >
         <Carousel>
           <Carousel.Item>
-            <img
-              className="d-block w-20"
-              src="https://www.pcdigital.com.mx/image/catalog/pcdigital/2017/KSP-300.png"
-              alt="bocina"
-              style={{
-                border: "10px ",
-                padding: "1rem",
-              }}
-            />
+            <div className="carousel-img-wrapper">
+              <img
+                className="d-block carousel-img"
+                src="https://www.pcdigital.com.mx/image/catalog/pcdigital/2017/KSP-300.png"
+                alt="bocina"
+                style={{
+                  border: "10px ",
+                  padding: "1rem",
+                  height: "100%",
+                  width: "auto",
+                }}
+              />
+            </div>
           </Carousel.Item>
           <Carousel.Item>
+            <div className="carousel-img-wrapper">
             <img
-              className="d-block w-20"
+              className="d-block w-10 carousel-img"
               src="https://www.ihnsa.mx/media/catalog/product/cache/1eff44fae7f0f87612ba0fbcd3096c2f/h/g/hg3r_2.png"
               alt="calentador"
               style={{
                 border: "10px ",
                 padding: "1rem",
+                height: "100%",
+                width: "auto",
               }}
             />
+            </div>
           </Carousel.Item>
           <Carousel.Item>
+            <div className="carousel-img-wrapper">
             <img
-              className="d-block w-20"
+              className="d-block w-10 carousel-img"
               src="https://rotoplas.com.mx/wp-content/uploads/2020/01/cisterna02-1.png"
               alt="rotoplas"
               style={{
                 border: "10px ",
                 padding: "1rem",
+                height: "100%",
+                width: "auto",
               }}
             />
+            </div>
           </Carousel.Item>
         </Carousel>
       </div>
