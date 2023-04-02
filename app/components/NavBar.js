@@ -1,7 +1,7 @@
 'use client'
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { useRouter, usePathname } from "next/navigation";
+import {usePathname} from "next/navigation";
 
 const rutas = [
   {
@@ -23,7 +23,6 @@ const rutas = [
 ];
 
 const Navbar = () => {
-  const router = useRouter();
   const pathname = usePathname();
   const [isClient, setIsClient] = useState(false);
   const [showSidebar, setShowSidebar] = useState(false);
@@ -32,14 +31,6 @@ const Navbar = () => {
   useEffect(() => {
     setIsClient(typeof window !== "undefined");
   }, []);
-
-  const handleMouseEnter = () => {
-    setShowSidebar(true);
-  };
-
-  const handleMouseLeave = () => {
-    setShowSidebar(false);
-  };
 
   const handleMenuButtonClick = () => {
     setShowSidebar(true);
