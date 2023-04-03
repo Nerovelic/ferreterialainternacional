@@ -32,6 +32,10 @@ const Navbar = () => {
     setIsClient(typeof window !== "undefined");
   }, []);
 
+  if (pathname.match(/^\/productos\/[0-9]$/)) {
+    return null;
+}
+
   const handleMenuButtonClick = () => {
     setShowSidebar(true);
     setShowMenuButton(false);
