@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMapMarkerAlt, faPhone, faEnvelope  } from '@fortawesome/free-solid-svg-icons';
 import styles from '../styles/Email.module.css';
 import styless from '../styles/Titulo.module.css';
+import stylesss from '../styles/MapGoogle.module.css'
 
 const Contacts = () => {
   const [width, setWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 0);
@@ -81,7 +82,7 @@ const Contacts = () => {
                 </dd>
             </div>
           </dl>
-          <div className="mt-10">
+          <div className={`${styless['google-map']}`}>
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13554.474772151412!2d-116.6068819!3d31.8625898!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80d88d7b14539aa1%3A0x5c1d5156b7a4869!2sFerreter%C3%ADa%20y%20Maderer%C3%ADa%20la%20Internacional!5e0!3m2!1ses-419!2smx!4v1680478363577!5m2!1ses-419!2smx"
                 width={width > 768 ? 1216 : 400}

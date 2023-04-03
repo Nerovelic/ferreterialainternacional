@@ -1,0 +1,13 @@
+@media (max-width: 768px) {
+    .google-map {
+      display: flex;
+      margin-top: 10;
+    }
+  }
+  @media (min-width: 768px) {
+    .google-map{
+      display: block;
+      margin: 2;
+    }
+  }
+  
