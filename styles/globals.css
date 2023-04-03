@@ -1,3 +1,88 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.grid-cols-1 {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+  
+  .grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  
+  .grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  
+  .grid-cols-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  
+  .border-amazon {
+    border-color: #232f3e;
+  }
+  
+  .bg-amazon {
+    background-color: #232f3e;
+  }
+  
+  .text-amazon {
+    color: #fff;
+  }
+  
+  .hover\:bg-amazon:hover {
+    background-color: #37475a;
+  }
+  
+  .focus\:bg-amazon:focus {
+    background-color: #1a202c;
+  }
+
+@import url('https://fonts.googleapis.com/css2?family=Amazon+Ember&display=swap');
+
+.amazon-search {
+  display: flex;
+  align-items: center;
+  padding: 6px 10px;
+  background-color: #F7F7F7;
+  border: 1px solid #DDD;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.amazon-search input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  margin-left: 10px;
+  background-color: transparent;
+}
+
+.amazon-search button {
+  border: none;
+  background-color: #FF9900;
+  color: #FFF;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 8px 10px;
+  border-radius: 4px;
+  margin-left: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.amazon-search button:hover {
+  background-color: #FFA31A;
+}
+
+.search-container {
+    position: absolute;
+    top: 4%;
+    left: 76%;
+    transform: translate(-50%, -50%);
+    z-index: 999;
+    text-align: center;
+    width: 100%;
+  }
+  
