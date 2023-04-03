@@ -37,8 +37,8 @@ const Contacts = () => {
                 Dirección
               </dt>
               <dd className="ml-4 text-base text-gray-500">
-                Reforma 293,<br />
-                Independencia<br />
+                Reforma 293,
+                Independencia
                 Ensenada, B.C, 22840 
               </dd>
             </div>
@@ -51,14 +51,14 @@ const Contacts = () => {
                 (646) 176-2650
               </dd>
             </div>
-            <div className={width <= 768 ? "mx-auto" : "mt-8 sm:mt-0 flex items-center"}>
-              <div className="flex">
+            <div className="flex items-center">
+              <div className={width <= 768 ? "mx-auto" : "sm:mt-8 flex items-center"}>
                 <FontAwesomeIcon icon={faEnvelope} className="mr-3 h-10 w-10" />
                 <dt className="text-lg leading-6 font-medium text-gray-900">
                   Primer Correo
                 </dt>
-                <dd className="ml-4 text-base text-gray-500">               	
-                  ferreterialainternacionalsa@gmail.com
+                <dd className="ml-4 text-base text-gray-500">
+                  <a href="mailto:ferreterialainternacionalsa@gmail.com" className="ml-2 text-base text-blue-600 underline">ferreterialainternacionalsa@gmail.com</a>
                 </dd>
               </div>
             </div>
@@ -71,14 +71,14 @@ const Contacts = () => {
                 01152-646-176-26-50
               </dd>
             </div>
-            <div className={width <= 768 ? "mx-auto" : "mt-8 sm:mt-0 flex items-center"}>
-              <div className="flex">
+            <div className="flex items-center">
+              <div className={width <= 768 ? "mx-auto" : "sm:mt-8 flex items-center"}>
                 <FontAwesomeIcon icon={faEnvelope} className="mr-3 h-10 w-10" />
                 <dt className="text-lg leading-6 font-medium text-gray-900">
                   Segundo Correo
                 </dt>
-                <dd className="ml-4 text-base text-gray-500 sm:mt-4">
-                  ferreteria_lainternacional@hotmail.com
+                <dd className="ml-4 text-base text-gray-500">
+                  <a href="mailto:ferreteria_lainternacional@hotmail.com" className="ml-2 text-base text-blue-600 underline">ferreteria_lainternacional@hotmail.com</a>
                 </dd>
               </div>
             </div>
