@@ -4,8 +4,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMapMarkerAlt, faPhone, faEnvelope  } from '@fortawesome/free-solid-svg-icons';
 
 const Contacts = () => {
-  const [width, setWidth] = useState(window.innerWidth);
-
+  const [width, setWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 0);
+  
   useEffect(() => {
     const handleResize = () => {
       setWidth(window.innerWidth);
@@ -13,7 +13,7 @@ const Contacts = () => {
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
-  
+
   return (
     <div className="bg-gray-100 py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
