@@ -51,7 +51,7 @@ const Contacts = () => {
                 (646) 176-2650
               </dd>
             </div>
-            <div className="mt-8 sm:mt-0 flex items-center">
+            <div className={width <= 768 ? "mx-auto" : "mt-8 sm:mt-0 flex items-center"}>
               <div className="flex">
                 <FontAwesomeIcon icon={faEnvelope} className="mr-3 h-10 w-10" />
                 <dt className="text-lg leading-6 font-medium text-gray-900">
@@ -71,7 +71,7 @@ const Contacts = () => {
                 01152-646-176-26-50
               </dd>
             </div>
-            <div className="mt-8 sm:mt-0 flex items-center">
+            <div className={width <= 768 ? "mx-auto" : "mt-8 sm:mt-0 flex items-center"}>
               <div className="flex">
                 <FontAwesomeIcon icon={faEnvelope} className="mr-3 h-10 w-10" />
                 <dt className="text-lg leading-6 font-medium text-gray-900">
