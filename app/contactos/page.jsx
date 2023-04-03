@@ -1,4 +1,6 @@
 import React from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMapMarkerAlt, faPhone, faEnvelope  } from '@fortawesome/free-solid-svg-icons';
 
 const Contacts = () => {
   return (
@@ -18,9 +20,10 @@ const Contacts = () => {
 
         <div className="mt-10">
           <dl className="sm:grid sm:grid-cols-2 sm:gap-8">
-            <div className="flex items-center">
+          <div className="flex items-center">
+                <FontAwesomeIcon icon={faMapMarkerAlt} className="mr-3 h-10 w-10" />
               <dt className="text-lg leading-6 font-medium text-gray-900">
-                Dirreccion
+                Dirección
               </dt>
               <dd className="ml-4 text-base text-gray-500">
                 Reforma 293,<br />
@@ -29,6 +32,7 @@ const Contacts = () => {
               </dd>
             </div>
             <div className="mt-8 sm:mt-0 flex items-center">
+                <FontAwesomeIcon icon={faPhone} className="mr-3 h-10 w-10" />
               <dt className="text-lg leading-6 font-medium text-gray-900">
                 Telefono Local
               </dt>
@@ -37,6 +41,7 @@ const Contacts = () => {
               </dd>
             </div>
             <div className="mt-8 sm:mt-0 flex items-center">
+                <FontAwesomeIcon icon={faEnvelope} className="mr-3 h-10 w-10" />
               <dt className="text-lg leading-6 font-medium text-gray-900">
                 Primer Correo 
               </dt>
@@ -45,6 +50,7 @@ const Contacts = () => {
               </dd>
             </div>
             <div className="mt-8 sm:mt-0 flex items-center">
+                <FontAwesomeIcon icon={faPhone} className="mr-3 h-10 w-10" />
               <dt className="text-lg leading-6 font-medium text-gray-900">
                 Telefono Internacional
               </dt>
@@ -53,6 +59,7 @@ const Contacts = () => {
               </dd>
             </div>
             <div className="mt-8 sm:mt-0 flex items-center">
+                <FontAwesomeIcon icon={faEnvelope} className="mr-3 h-10 w-10" />
               <dt className="text-lg leading-6 font-medium text-gray-900">
                 Segundo Correo
               </dt>
