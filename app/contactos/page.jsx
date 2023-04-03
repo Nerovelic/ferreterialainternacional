@@ -52,7 +52,6 @@ const Contacts = () => {
               </dd>
             </div>
             <div className="flex items-center">
-              <div className={width <= 768 ? "mx-auto" : "sm:mt-8 flex items-center justify-center"}>
                 <FontAwesomeIcon icon={faEnvelope} className="mr-3 h-10 w-10" />
                 <dt className="text-lg leading-6 font-medium text-gray-900">
                   Primer Correo
@@ -60,7 +59,6 @@ const Contacts = () => {
                 <dd className="ml-4 text-base text-gray-500">
                   <a href="mailto:ferreterialainternacionalsa@gmail.com" className="ml-2 text-base text-blue-600 underline">ferreterialainternacionalsa@gmail.com</a>
                 </dd>
-              </div>
             </div>
             <div className="mt-8 sm:mt-0 flex items-center">
                 <FontAwesomeIcon icon={faPhone} className="mr-3 h-10 w-10" />
@@ -72,7 +70,6 @@ const Contacts = () => {
               </dd>
             </div>
             <div className="flex items-center">
-              <div className={width <= 768 ? "mx-auto" : "sm:mt-8 flex items-center justify-center"}>
                 <FontAwesomeIcon icon={faEnvelope} className="mr-3 h-10 w-10" />
                 <dt className="text-lg leading-6 font-medium text-gray-900">
                   Segundo Correo
@@ -80,7 +77,6 @@ const Contacts = () => {
                 <dd className="ml-4 text-base text-gray-500">
                   <a href="mailto:ferreteria_lainternacional@hotmail.com" className="ml-2 text-base text-blue-600 underline">ferreteria_lainternacional@hotmail.com</a>
                 </dd>
-              </div>
             </div>
           </dl>
           <div className="mt-10">
