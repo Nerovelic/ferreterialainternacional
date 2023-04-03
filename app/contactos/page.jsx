@@ -52,7 +52,7 @@ const Contacts = () => {
               </dd>
             </div>
             <div className="flex items-center">
-              <div className={width <= 768 ? "mx-auto" : "sm:mt-8 flex items-center"}>
+              <div className={width <= 768 ? "mx-auto" : "sm:mt-8 flex items-center justify-center"}>
                 <FontAwesomeIcon icon={faEnvelope} className="mr-3 h-10 w-10" />
                 <dt className="text-lg leading-6 font-medium text-gray-900">
                   Primer Correo
@@ -72,7 +72,7 @@ const Contacts = () => {
               </dd>
             </div>
             <div className="flex items-center">
-              <div className={width <= 768 ? "mx-auto" : "sm:mt-8 flex items-center"}>
+              <div className={width <= 768 ? "mx-auto" : "sm:mt-8 flex items-center justify-center"}>
                 <FontAwesomeIcon icon={faEnvelope} className="mr-3 h-10 w-10" />
                 <dt className="text-lg leading-6 font-medium text-gray-900">
                   Segundo Correo
