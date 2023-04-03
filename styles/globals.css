@@ -45,7 +45,7 @@
   align-items: center;
   padding: 6px 10px;
   background-color: #F7F7F7;
-  border: 1px solid #DDD;
+  border: 1px solid #000000;
   border-radius: 4px;
   margin-bottom: 10px;
 }
@@ -78,7 +78,7 @@
 
 .search-container {
     position: absolute;
-    top: 4%;
+    top: 3.4%;
     left: 76%;
     transform: translate(-50%, -50%);
     z-index: 999;

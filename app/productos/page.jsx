@@ -1,13 +1,60 @@
 'use client'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import styles from '../../styles/globals.css';
 
-const productos = [  {    nombre: 'Cerrojo para puerta',    precio: 10,    stock: 5  },  {    nombre: 'Cerradura master lock con llave',    precio: 20,    stock: 10  },  {    nombre: 'Cerradura master lock',    precio: 45,    stock: 21  },  {    nombre: 'Placa para conexion de telefono',    precio: 12,    stock: 44  },  {    nombre: 'Panel de electricidad',    precio: 21,    stock: 32  },  {    nombre: 'T-king - Probador inalámbrico de conexión de tuberías',    precio: 15,    stock: 29  },  {    nombre: 'Interruptor eléctrico',    precio: 17,    stock: 54  },  {    nombre: 'Enchufe de electricidad',    precio: 10,    stock: 30  },  {    nombre: 'Cableado electrico',    precio: 22,    stock: 17  },];
+const productos = [  
+  {
+     nombre: 'Cerrojo para puerta',
+     precio: 10,
+     stock: 5
+    },
+    {
+      nombre: 'Cerradura master lock con llave',
+      precio: 20,
+      stock: 10
+    },
+    {
+      nombre: 'Cerradura master lock',
+      precio: 45,
+      stock: 21
+    },
+    {
+      nombre: 'Placa para conexion de telefono',
+      precio: 12,
+      stock: 44
+    },
+    {
+      nombre: 'Panel de electricidad',
+      precio: 21, 
+      stock: 32
+    },
+    {
+      nombre: 'T-king - Probador inalámbrico de conexión de tuberías',
+      precio: 15,
+      stock: 29
+    },
+    {
+      nombre: 'Interruptor eléctrico',
+      precio: 17,
+      stock: 54
+    },
+    {
+      nombre: 'Enchufe de electricidad',
+      precio: 10,
+      stock: 30
+    },
+    {
+      nombre: 'Cableado electrico',
+      precio: 22,
+       stock: 17
+    },
+  ];
 
 const Productos = () => {
   const [busqueda, setBusqueda] = useState('');
+  const [showScrollButton, setShowScrollButton] = useState(false);
 
   const handleBusqueda = (e) => {
     setBusqueda(e.target.value);
@@ -16,6 +63,22 @@ const Productos = () => {
   const productosFiltrados = productos.filter((producto) =>
     producto.nombre.toLowerCase().includes(busqueda.toLowerCase())
   );
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.pageYOffset > 100) {
+        setShowScrollButton(true);
+      } else {
+        setShowScrollButton(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   return (
     <div className={`${styles['block']} ${styles['border']} ${styles['border-gray-400']} ${styles['rounded-lg']} ${styles['hover:shadow-lg']} ${styles['hover:border-gray-500']} ${styles['p-4']} ${styles['text-gray-800']}`} style={{ 
@@ -33,6 +96,19 @@ const Productos = () => {
         bottom: 0,
         overflowY: "auto",
       }}>
+    {showScrollButton ? (
+      <button
+        className={`${styles['fixed']} ${styles['bottom-0']} ${styles['left-0']} ${styles['mb-4']} ${styles['ml-4']} ${styles['bg-blue-500']} ${styles['text-white']} ${styles['p-2']} ${styles['rounded-full']} ${styles['hover:bg-blue-700']} ${styles['focus:outline-none']} ${styles['focus:ring']} ${styles['focus:ring-blue-500']} ${styles['focus:ring-opacity-50']}`}
+        onClick={() => {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }}
+        style={{ display: 'block' }}
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" className={`${styles['h-6']} ${styles['w-6']}`} viewBox="0 0 20 20" fill="currentColor">
+          <path fillRule="evenodd" d="M6.293 10.293a1 1 0 011.414 0L10 12.586l2.293-2.293a1 1 0 011.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clipRule="evenodd" />
+        </svg>
+      </button>
+    ) : null}
     <div className="search-container">
       <div className="amazon-search" style={{width: "50%"}}>
         <input
@@ -40,7 +116,7 @@ const Productos = () => {
           placeholder="Buscar productos"
           value={busqueda}
           onChange={handleBusqueda}
-          style={{border: "2px solid black", width: "100%"}}
+          style={{width: "100%"}}
         />
       </div>
     </div>
