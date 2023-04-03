@@ -1,0 +1,23 @@
+@media (max-width: 768px) {  
+    .titulo{
+        text-align: center;
+    }
+    .titulo2{
+        text-align: center;
+    }
+    .contenido{
+        text-align: justify;
+    }
+}
+
+@media (min-width: 768px) {
+    .titulo{
+        text-align: center;
+    }
+    .titulo2{
+        text-align: center;
+    }
+    .contenido{
+        text-align: justify;
+    }
+}

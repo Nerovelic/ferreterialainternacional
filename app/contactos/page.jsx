@@ -2,6 +2,8 @@
 import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMapMarkerAlt, faPhone, faEnvelope  } from '@fortawesome/free-solid-svg-icons';
+import styles from '../styles/Email.module.css';
+import styless from '../styles/Titulo.module.css';
 
 const Contacts = () => {
   const [width, setWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 0);
@@ -13,18 +15,18 @@ const Contacts = () => {
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
-
+  
   return (
-    <div className="bg-gray-100 py-12">
+    <div className="bg-gray-100 min-h-screen py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="lg:text-center">
+        <div className={`${styless['titulo']}`}>
           <h2 className="text-base text-indigo-600 font-semibold tracking-wide uppercase">
             Contactanos
           </h2>
           <p className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
             Ponerse en contacto
           </p>
-          <p className="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
+          <p className={`mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto ${styles['contenido']}`}>
             ¿Tiene alguna pregunta o simplemente quiere decir hola? Nos encantaría saber de usted. Envíanos un mensaje y te responderé lo antes posible.
           </p>
         </div>
@@ -51,7 +53,7 @@ const Contacts = () => {
                 (646) 176-2650
               </dd>
             </div>
-            <div className="flex items-center">
+            <div className={`${styles['email-section']}`}>
                 <FontAwesomeIcon icon={faEnvelope} className="mr-3 h-10 w-10" />
                 <dt className="text-lg leading-6 font-medium text-gray-900">
                   Primer Correo
@@ -69,7 +71,7 @@ const Contacts = () => {
                 01152-646-176-26-50
               </dd>
             </div>
-            <div className="flex items-center">
+            <div className={`${styles['email-section']}`}>
                 <FontAwesomeIcon icon={faEnvelope} className="mr-3 h-10 w-10" />
                 <dt className="text-lg leading-6 font-medium text-gray-900">
                   Segundo Correo

@@ -1,0 +1,14 @@
+@media (max-width: 768px) {
+    .email-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  @media (min-width: 768px) {
+    .email-section {
+      display: flex;
+      align-items: center;
+    }
+  }
+  
