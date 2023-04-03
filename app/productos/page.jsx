@@ -3,52 +3,62 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import styles from '../../styles/globals.css';
+// import Imagenes from '../images'
 
 const productos = [  
   {
      nombre: 'Cerrojo para puerta',
      precio: 10,
-     stock: 5
+     stock: 5,
+     imagen: require('../productos/image/0.png')
     },
     {
       nombre: 'Cerradura master lock con llave',
       precio: 20,
-      stock: 10
+      stock: 10,
+      imagen: require('../productos/image/1.png')
     },
     {
       nombre: 'Cerradura master lock',
       precio: 45,
-      stock: 21
+      stock: 21,
+      imagen: require('../productos/image/2.png')
     },
     {
       nombre: 'Placa para conexion de telefono',
       precio: 12,
-      stock: 44
+      stock: 44,
+      imagen: require('../productos/image/3.png')
     },
     {
       nombre: 'Panel de electricidad',
       precio: 21, 
-      stock: 32
+      stock: 32,
+      imagen: require('../productos/image/4.png')
     },
     {
       nombre: 'T-king - Probador inalámbrico de conexión de tuberías',
       precio: 15,
-      stock: 29
+      stock: 29,
+      imagen: require('../productos/image/5.png')
     },
     {
       nombre: 'Interruptor eléctrico',
       precio: 17,
-      stock: 54
+      stock: 54,
+      imagen: require('../productos/image/6.png')
     },
     {
       nombre: 'Enchufe de electricidad',
       precio: 10,
-      stock: 30
+      stock: 30,
+      imagen: require('../productos/image/7.png')
     },
     {
       nombre: 'Cableado electrico',
       precio: 22,
-       stock: 17
+      stock: 17,
+      imagen: require('../productos/image/9.png')
     },
   ];
 
@@ -123,12 +133,17 @@ const Productos = () => {
       <ul className="grid grid-cols-1 md:grid-cols-4 gap-4">
         {productosFiltrados.map((producto, index) => (
           <li key={index}>
-            <Link href={`/productos/${index}`} legacyBehavior>
-              <a className={`${styles['s-card-container']} ${styles['s-overflow-hidden']} ${styles['aok-relative']} ${styles['puis-wide-grid-style']} ${styles['puis-wide-grid-style-t2']} ${styles['puis-expand-height']} ${styles['puis-include-content-margin']} ${styles['puis']} ${styles['s-latency-cf-section']} ${styles['s-card-border-gray-500']} ${styles['block']} ${styles['border']} ${styles['border-gray-400']} ${styles['rounded-lg']} ${styles['hover:shadow-lg']} ${styles['hover:border-gray-500']} ${styles['p-4']} ${styles['text-gray-800']}`} style={{textDecoration: "none", textAlign: "center"}}>
-                <Image src={require(`../images/${index}.png`)} width={500} height={300} alt={producto.nombre} className={`${styles['float-left']}`} />
-                <h2 className={`${styles['text-lg']} ${styles['font-semibold']} ${styles['mt-2']} ${styles['text-center']}`}>{producto.nombre}</h2>
-                <p className={`${styles['text-sm']} ${styles['text-left']} ${styles['mt-2']}`}>Precio: ${producto.precio}</p>
-                <p className={`${styles['text-sm']} ${styles['text-left']} ${styles['mt-2']}`}>Disponibilidad: {producto.stock} unidades</p>
+            <Link href={`/productos/${index}`} legacyBehavior> 
+              <a>
+                <div className="group">
+                  <div className={`${styles['relative']} ${styles['overflow-hidden']} ${styles['rounded-lg']} ${styles['shadow-md']} group-hover:shadow-xl transition-shadow duration-300`}>
+                    <Image src={producto.imagen} alt={producto.nombre} layout="responsive" width={300} height={300} />
+                  </div>
+                  <div className={`${styles['text-center']} ${styles['mt-2']} ${styles['font-semibold']} ${styles['text-gray-800']} ${styles['group-hover:text-blue-500']} transition-colors duration-300`}>
+                    <p>{producto.nombre}</p>
+                    <p>{`$${producto.precio}`}</p>
+                  </div>
+                </div>
               </a>
             </Link>
           </li>
