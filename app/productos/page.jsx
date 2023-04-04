@@ -66,7 +66,7 @@ const productos = [
     nombre: "Cableado electrico",
     precio: 22,
     stock: 17,
-    imagen: require("../productos/image/9.png"),
+    imagen: require("../productos/image/8.png"),
   },
 ];
 
