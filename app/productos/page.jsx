@@ -1,77 +1,87 @@
 'use client'
-import { useState, useEffect } from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
-import styles from '../../styles/globals.css';
-// import Imagenes from '../images'
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import styles from "../../styles/globals.css";
 
-const productos = [  
+const productos = [
   {
-     nombre: 'Cerrojo para puerta',
-     precio: 10,
-     stock: 5,
-     imagen: require('../productos/image/0.png')
-    },
-    {
-      nombre: 'Cerradura master lock con llave',
-      precio: 20,
-      stock: 10,
-      imagen: require('../productos/image/1.png')
-    },
-    {
-      nombre: 'Cerradura master lock',
-      precio: 45,
-      stock: 21,
-      imagen: require('../productos/image/2.png')
-    },
-    {
-      nombre: 'Placa para conexion de telefono',
-      precio: 12,
-      stock: 44,
-      imagen: require('../productos/image/3.png')
-    },
-    {
-      nombre: 'Panel de electricidad',
-      precio: 21, 
-      stock: 32,
-      imagen: require('../productos/image/4.png')
-    },
-    {
-      nombre: 'T-king - Probador inalámbrico de conexión de tuberías',
-      precio: 15,
-      stock: 29,
-      imagen: require('../productos/image/5.png')
-    },
-    {
-      nombre: 'Interruptor eléctrico',
-      precio: 17,
-      stock: 54,
-      imagen: require('../productos/image/6.png')
-    },
-    {
-      nombre: 'Enchufe de electricidad',
-      precio: 10,
-      stock: 30,
-      imagen: require('../productos/image/7.png')
-    },
-    {
-      nombre: 'Cableado electrico',
-      precio: 22,
-      stock: 17,
-      imagen: require('../productos/image/9.png')
-    },
-  ];
+    id: 0,
+    nombre: "Cerrojo para puerta",
+    precio: 10,
+    stock: 5,
+    imagen: require("../productos/image/0.png"),
+  },
+  {
+    id: 1,
+    nombre: "Cerradura master lock con llave",
+    precio: 20,
+    stock: 10,
+    imagen: require("../productos/image/1.png"),
+  },
+  {
+    id: 2,
+    nombre: "Cerradura master lock",
+    precio: 45,
+    stock: 21,
+    imagen: require("../productos/image/2.png"),
+  },
+  {
+    id: 3,
+    nombre: "Placa para conexion de telefono",
+    precio: 12,
+    stock: 44,
+    imagen: require("../productos/image/3.png"),
+  },
+  {
+    id: 4,
+    nombre: "Panel de electricidad",
+    precio: 21,
+    stock: 32,
+    imagen: require("../productos/image/4.png"),
+  },
+  {
+    id: 5,
+    nombre: "T-king - Probador inalámbrico de conexión de tuberías",
+    precio: 15,
+    stock: 29,
+    imagen: require("../productos/image/5.png"),
+  },
+  {
+    id: 6,
+    nombre: "Interruptor eléctrico",
+    precio: 17,
+    stock: 54,
+    imagen: require("../productos/image/6.png"),
+  },
+  {
+    id: 7,
+    nombre: "Enchufe de electricidad",
+    precio: 10,
+    stock: 30,
+    imagen: require("../productos/image/7.png"),
+  },
+  {
+    id: 8,
+    nombre: "Cableado electrico",
+    precio: 22,
+    stock: 17,
+    imagen: require("../productos/image/9.png"),
+  },
+];
 
 const Productos = () => {
-  const [busqueda, setBusqueda] = useState('');
+  const [busqueda, setBusqueda] = useState("");
   const [showScrollButton, setShowScrollButton] = useState(false);
 
   const handleBusqueda = (e) => {
     setBusqueda(e.target.value);
   };
 
-  const productosFiltrados = productos.filter((producto) =>
-    producto.nombre.toLowerCase().includes(busqueda.toLowerCase())
+  const productosFiltrados = productos.filter(
+    (producto) =>
+      producto.nombre.toLowerCase().includes(busqueda.toLowerCase()) ||
+      producto.id.toString().includes(busqueda)
   );
 
   useEffect(() => {
@@ -83,10 +93,10 @@ const Productos = () => {
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
 
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
@@ -130,25 +140,25 @@ const Productos = () => {
         />
       </div>
     </div>
-      <ul className="grid grid-cols-1 md:grid-cols-4 gap-4">
-        {productosFiltrados.map((producto, index) => (
-          <li key={index}>
-            <Link href={`/productos/${index}`} legacyBehavior> 
-              <a>
-                <div className="group">
-                  <div className={`${styles['relative']} ${styles['overflow-hidden']} ${styles['rounded-lg']} ${styles['shadow-md']} group-hover:shadow-xl transition-shadow duration-300`}>
-                    <Image src={producto.imagen} alt={producto.nombre} layout="responsive" width={300} height={300} />
-                  </div>
-                  <div className={`${styles['text-center']} ${styles['mt-2']} ${styles['font-semibold']} ${styles['text-gray-800']} ${styles['group-hover:text-blue-500']} transition-colors duration-300`}>
-                    <p>{producto.nombre}</p>
-                    <p>{`$${producto.precio}`}</p>
-                  </div>
+    <ul className="grid grid-cols-1 md:grid-cols-4 gap-4">
+      {productosFiltrados.map((product) => (
+        <li key={product.id}>
+          <Link href={`/productos/${product.id}`} legacyBehavior> 
+            <a>
+              <div className="group">
+                <div className={`${styles['relative']} ${styles['overflow-hidden']} ${styles['rounded-lg']} ${styles['shadow-md']} group-hover:shadow-xl transition-shadow duration-300`}>
+                  <Image src={product.imagen} alt={product.nombre} layout="responsive" width={300} height={300} />
                 </div>
-              </a>
-            </Link>
-          </li>
-        ))}
-      </ul>
+                <div className={`${styles['text-center']} ${styles['mt-2']} ${styles['font-semibold']} ${styles['text-gray-800']} ${styles['group-hover:text-blue-500']} transition-colors duration-300`}>
+                  <p>{product.nombre}</p>
+                  <p>{`$${product.precio}`}</p>
+                </div>
+              </div>
+            </a>
+          </Link>
+        </li>
+      ))}
+    </ul>
     </div>
   );
 };
