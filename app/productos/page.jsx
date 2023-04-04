@@ -146,12 +146,13 @@ const Productos = () => {
           <Link href={`/productos/${product.id}`} legacyBehavior> 
             <a>
               <div className="group">
-                <div className={`${styles['relative']} ${styles['overflow-hidden']} ${styles['rounded-lg']} ${styles['shadow-md']} group-hover:shadow-xl transition-shadow duration-300`}>
+              <div className={`${styles['relative']} ${styles['overflow-hidden']} ${styles['rounded-lg']} ${styles['shadow-lg']} group-hover:shadow-xl transition-shadow duration-500`} style={{width: '100%', height: '100%'}}>
                   <Image src={product.imagen} alt={product.nombre} layout="responsive" width={300} height={300} />
                 </div>
-                <div className={`${styles['text-center']} ${styles['mt-2']} ${styles['font-semibold']} ${styles['text-gray-800']} ${styles['group-hover:text-blue-500']} transition-colors duration-300`}>
-                  <p>{product.nombre}</p>
-                  <p>{`$${product.precio}`}</p>
+                <div className={`${styles['p-4']}`}>
+                  <h2 className={`${styles['font-semibold']} ${styles['text-gray-800']} ${styles['text-lg']}`} style={{ textAlign: "center" }}>{product.nombre}</h2>
+                  <p className={`${styles['text-gray-600']} ${styles['mt-2']}`} style={{ textAlign: "center" }}>Precio: ${product.precio}</p>
+                  <p className={`${styles['text-gray-600']} ${styles['mt-2']}`} style={{ textAlign: "center" }}> Disponibilidad: {product.stock} en stock</p>
                 </div>
               </div>
             </a>
