@@ -104,11 +104,11 @@ const Productos = () => {
     <div className="productos-container">
       {showScrollButton ? (
         <button
-          className="scroll-button"
+          className="scroll-button md:hidden block"
           onClick={() => {
             window.scrollTo({ top: 0, behavior: "smooth" });
           }}
-          style={{ display: "block" }}
+          style={{ display: "block", position: "fixed", bottom: "20px", left: "20px" }}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -118,7 +118,7 @@ const Productos = () => {
           >
             <path
               fillRule="evenodd"
-              d="M6.293 10.293a1 1 0 011.414 0L10 12.586l2.293-2.293a1 1 0 011.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z"
+              d="M13.707 9.707a1 1 0 01-1.414 1.414L10 8.414l-2.293 2.293a1 1 0 01-1.414-1.414l3-3a1 1 0 011.414 0l3 3z"
               clipRule="evenodd"
             />
           </svg>
