@@ -32,6 +32,12 @@ const Navbar = () => {
     setIsClient(typeof window !== "undefined");
   }, []);
 
+  //Para hacer que el menu se cierre si se esta en otra ruta/
+  useEffect(() => {
+    setShowSidebar(false);
+    setShowMenuButton(true);
+  }, [pathname]);
+
   if (pathname.match(/^\/productos\/[0-9]$/)) {
     return null;
 }
