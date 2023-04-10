@@ -41,13 +41,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Amazon+Ember&display=swap');
 
 .amazon-search {
-  display: flex;
-  align-items: center;
-  padding: 6px 10px;
-  background-color: #F7F7F7;
-  border: 1px solid #000000;
-  border-radius: 4px;
-  margin-bottom: 10px;
+  background-color: #ffffff;
+  border-radius: 5px;
+  border: 1px solid #cccccc;
+  width: 80%;
+  padding: 10px;
 }
 
 .amazon-search input {
@@ -77,12 +75,24 @@
 }
 
 .search-container {
-    position: absolute;
-    top: 3.4%;
-    left: 76%;
-    transform: translate(-50%, -50%);
-    z-index: 999;
-    text-align: center;
-    width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.productos-container {
+  background-color: #f0f0f0;
+  background-size: cover;
+  background-attachment: fixed;
+  animation: scroll 100s linear infinite;
+  overflow-y: auto;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+@media (max-width: 768px) {
+  .productos-container {
+    padding: 10px;
   }
-  
+}

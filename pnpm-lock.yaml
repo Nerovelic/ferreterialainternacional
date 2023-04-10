@@ -43,6 +43,9 @@ dependencies:
   react-dom:
     specifier: 18.2.0
     version: 18.2.0(react@18.2.0)
+  react-facebook:
+    specifier: ^9.0.12
+    version: 9.0.12(react@18.2.0)
   react-icons:
     specifier: ^4.8.0
     version: 4.8.0(react@18.2.0)
@@ -2228,6 +2231,16 @@ packages:
     engines: {node: '>= 6'}
     dependencies:
       prop-types: 15.8.1
+    dev: false
+
+  /react-facebook@9.0.12(react@18.2.0):
+    resolution: {integrity: sha512-u7L9wWEG8/UR1kj3JRvHR5SR/cBvZkC4ZCnIt4ZmXMpg4LGVJkihcYIb2/L3FOHUsNt6p9k6jpA+7Cz3zD34iA==}
+    engines: {node: '>= 6.0.0'}
+    peerDependencies:
+      react: '>= 16'
+    dependencies:
+      '@babel/runtime': 7.21.0
+      react: 18.2.0
     dev: false
 
   /react-icons@4.8.0(react@18.2.0):

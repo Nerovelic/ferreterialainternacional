@@ -101,48 +101,43 @@ const Productos = () => {
   }, []);
 
   return (
-    <div className={`${styles['block']} ${styles['border']} ${styles['border-gray-400']} ${styles['rounded-lg']} ${styles['hover:shadow-lg']} ${styles['hover:border-gray-500']} ${styles['p-4']} ${styles['text-gray-800']}`} style={{ 
-        background: "linear-gradient(to top, #a2d2ff, #D8DAD3)",
-        backgroundSize: "cover",
-        backgroundAttachment: "fixed",
-        animation: "scroll 100s linear infinite",
-        height: "100vh",
-        margin: 0,
-        padding: 0,
-        position: "fixed",
-        top: 0,
-        left: 0,
-        right: 0,
-        bottom: 0,
-        overflowY: "auto",
-      }}>
-    {showScrollButton ? (
-      <button
-        className={`${styles['fixed']} ${styles['bottom-0']} ${styles['left-0']} ${styles['mb-4']} ${styles['ml-4']} ${styles['bg-blue-500']} ${styles['text-white']} ${styles['p-2']} ${styles['rounded-full']} ${styles['hover:bg-blue-700']} ${styles['focus:outline-none']} ${styles['focus:ring']} ${styles['focus:ring-blue-500']} ${styles['focus:ring-opacity-50']}`}
-        onClick={() => {
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        }}
-        style={{ display: 'block' }}
-      >
-        <svg xmlns="http://www.w3.org/2000/svg" className={`${styles['h-6']} ${styles['w-6']}`} viewBox="0 0 20 20" fill="currentColor">
-          <path fillRule="evenodd" d="M6.293 10.293a1 1 0 011.414 0L10 12.586l2.293-2.293a1 1 0 011.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clipRule="evenodd" />
-        </svg>
-      </button>
-    ) : null}
-    <div className="search-container">
-      <div className="amazon-search" style={{width: "50%"}}>
-        <input
-          type="text"
-          placeholder="Buscar productos"
-          value={busqueda}
-          onChange={handleBusqueda}
-          style={{width: "100%"}}
-        />
+    <div className="productos-container">
+      {showScrollButton ? (
+        <button
+          className="scroll-button"
+          onClick={() => {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          }}
+          style={{ display: "block" }}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-6 w-6"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+          >
+            <path
+              fillRule="evenodd"
+              d="M6.293 10.293a1 1 0 011.414 0L10 12.586l2.293-2.293a1 1 0 011.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z"
+              clipRule="evenodd"
+            />
+          </svg>
+        </button>
+      ) : null}
+      <div className="search-container" style={{ display: "flex", justifyContent: "center" }}>
+        <div className="amazon-search" style={{ width: "80%" }}>
+          <input
+            type="text"
+            placeholder="Buscar productos"
+            value={busqueda}
+            onChange={handleBusqueda}
+            style={{ width: "100%" }}
+          />
+        </div>
       </div>
-    </div>
     <ul className="grid grid-cols-1 md:grid-cols-4 gap-4">
       {productosFiltrados.map((product) => (
-        <li key={product.id}>
+        <div className="product-container" key={product.id}>
           <Link href={`/productos/${product.id}`} legacyBehavior> 
             <a>
               <div className="group">
@@ -157,7 +152,7 @@ const Productos = () => {
               </div>
             </a>
           </Link>
-        </li>
+        </div>
       ))}
     </ul>
     </div>

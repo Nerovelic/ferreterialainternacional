@@ -3,6 +3,11 @@ import React, { useRef, useEffect } from "react";
 import backgroundImage from "./images/ferre.png";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Carousel } from "react-bootstrap";
+import Image from "next/image";
+import bocina from './images/bocina.png';
+import calentador from './images/calentador.png';
+import rotoplas from './images/rotoplas.png';
+
 
 const HomePage = ({ footerPosition = "bottom" }) => {
   const carouselRef = useRef(null);
@@ -84,9 +89,9 @@ const HomePage = ({ footerPosition = "bottom" }) => {
         <Carousel>
           <Carousel.Item>
             <div className="carousel-img-wrapper">
-              <img
-                className="d-block carousel-img"
-                src="https://www.pcdigital.com.mx/image/catalog/pcdigital/2017/KSP-300.png"
+              <Image
+                className="d-block w-10 carousel-img"
+                src={bocina}
                 alt="bocina"
                 style={{
                   border: "10px ",
@@ -99,9 +104,9 @@ const HomePage = ({ footerPosition = "bottom" }) => {
           </Carousel.Item>
           <Carousel.Item>
             <div className="carousel-img-wrapper">
-            <img
+            <Image
               className="d-block w-10 carousel-img"
-              src="https://www.ihnsa.mx/media/catalog/product/cache/1eff44fae7f0f87612ba0fbcd3096c2f/h/g/hg3r_2.png"
+              src={calentador}
               alt="calentador"
               style={{
                 border: "10px ",
@@ -114,9 +119,9 @@ const HomePage = ({ footerPosition = "bottom" }) => {
           </Carousel.Item>
           <Carousel.Item>
             <div className="carousel-img-wrapper">
-            <img
+            <Image
               className="d-block w-10 carousel-img"
-              src="https://rotoplas.com.mx/wp-content/uploads/2020/01/cisterna02-1.png"
+              src={rotoplas}
               alt="rotoplas"
               style={{
                 border: "10px ",
