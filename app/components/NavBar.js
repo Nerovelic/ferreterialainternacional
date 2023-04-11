@@ -27,6 +27,7 @@ const Navbar = () => {
   const [isClient, setIsClient] = useState(false);
   const [showSidebar, setShowSidebar] = useState(false);
   const [showMenuButton, setShowMenuButton] = useState(true);
+  const [activeRoute, setActiveRoute] = useState("");
 
   useEffect(() => {
     setIsClient(typeof window !== "undefined");
@@ -42,14 +43,13 @@ const Navbar = () => {
     return null;
 }
 
-  const handleMenuButtonClick = () => {
-    setShowSidebar(true);
-    setShowMenuButton(false);
-  };
-
   const handleReturnClick = () => {
     setShowSidebar(false);
     setShowMenuButton(true);
+  };
+
+  const handleLinkClick = (route) => {
+    setActiveRoute(route);
   };
 
   return (
@@ -70,7 +70,10 @@ const Navbar = () => {
           cursor: "pointer",
           transition: "all 0.3s ease-in-out",
         }}
-        onClick={handleMenuButtonClick}
+        onMouseEnter={() => {
+          setShowSidebar(true);
+          setShowMenuButton(false);
+        }}
       >
         {showMenuButton && (
           <span style={{ color: "#FFF", fontSize: "1.5rem" }}>☰</span>
@@ -89,6 +92,10 @@ const Navbar = () => {
           padding: "1rem",
           transition: "opacity 0.3s ease-in-out",
           borderRadius: "10px",
+        }}
+        onMouseLeave={() => {
+          setShowSidebar(false);
+          setShowMenuButton(true);
         }}
       >
         <div style={{ display: showSidebar ? "block" : "none" }}>
@@ -109,22 +116,24 @@ const Navbar = () => {
               <li key={rutas} style={{ marginBottom: "0.5rem" }}>
                 <Link href={rutas} legacyBehavior>
                   <a
-                    style={{
-                      display: "block",
-                      padding: "0.5rem",
-                      color: "#FFF",
-                      textDecoration: "none",
-                      transition: "background-color 0.3s ease-in-out",
+                    className={`navbar-link ${rutas === activeRoute ? "active" : ""}`}
+                    onClick={() => {
+                      setActiveRoute(rutas);
+                      setShowSidebar(false);
+                      setShowMenuButton(true);
                     }}
-                    className={`navbar-link ${
-                      rutas === pathname ? "active" : ""
-                    }`}
-                    onMouseOver={(e) =>
-                      e.target.classList.add("text-white")
-                    }
+                    style={{
+                      color: rutas === activeRoute ? "#FFF" : "#000",
+                      opacity: rutas === activeRoute ? "1" : "0.5",
+                      transition: "all 0.3s ease-in-out",
+                    }}
+                    onMouseOver={(e) => {
+                      e.target.style.color = "#FFF";
+                    }}
                     onMouseOut={(e) => {
-                      if (rutas !== pathname)
-                        e.target.classList.remove("text-white");
+                      if (rutas !== activeRoute) {
+                        e.target.style.color = "#000";
+                      }
                     }}
                   >
                     {label}
