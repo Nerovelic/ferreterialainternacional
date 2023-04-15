@@ -64,7 +64,7 @@ const About = () => {
             </div>
           </div>
         </div>
-        <Image src={local} alt="Local de Ferretería La Internacional" width={10000} height={355} className="mx-auto mt-8" />
+        <Image src={local} alt="Local de Ferretería La Internacional" width={5000} height={355} className="mx-auto mt-8" />
       </div>
       <footer
         style={{
