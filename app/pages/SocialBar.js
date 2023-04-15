@@ -9,6 +9,9 @@ const SocialBar = () => {
       <a href="https://www.instagram.com/lainternacionalferreteriay/?fbclid=IwAR08ow30fqOwsgz4kluqZPbhoylhNvhGrXqrG7MYX6JatZjwrD1dPvL9Cko" target="_blank" rel="">
         <i className="fab fa-instagram"></i>
       </a>
+      <a href="tel:6461136807">
+        <i className="fab fa-whatsapp"></i>
+      </a>
     </div>
   );
 };

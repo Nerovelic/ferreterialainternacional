@@ -24,6 +24,11 @@
   background-repeat: no-repeat;
 }
 
+.socialBar a:nth-child(3) {
+  background-image: url("../images/whatsapp.png");
+  background-repeat: no-repeat;
+}
+
 .socialBar a:hover {
   opacity: 0.8;
 }
